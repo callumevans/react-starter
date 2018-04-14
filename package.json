@@ -7,13 +7,14 @@
     "start": "webpack-dev-server -d --config ./webpack.config.js",
     "bundle-dev": "webpack --mode development --config ./webpack.config.js",
     "bundle-production": "webpack --mode production --config ./webpack.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.44",
     "@babel/preset-env": "^7.0.0-beta.44",
     "@babel/preset-react": "^7.0.0-beta.44",
     "babel-loader": "^8.0.0-beta.2",
+    "jest": "^22.4.3",
     "node-sass": "^4.8.3",
     "react-hot-loader": "^4.0.1",
     "webpack": "^4.5.0",
@@ -28,6 +29,11 @@
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-router-dom": "^4.2.2"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
+    }
   },
   "author": "Callum Evans",
   "license": "ISC"
