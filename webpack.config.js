@@ -9,7 +9,7 @@ module.exports = (env, argv) => {
         entry: {
             main: [
                 'react-hot-loader/babel',
-                './src/app.js'
+                './src/main.js'
             ]
         },
         module: {
@@ -61,7 +61,7 @@ const getCssLoaderOptions = (isProduction) => {
 const getPlugins = (isProduction) => {
     const plugins = [];
 
-    plugins.push(new HtmlWebpackPlugin({ template: './src/index.html' }));
+    plugins.push(new HtmlWebpackPlugin({ template: 'index.html' }));
 
     if (!isProduction) {
         plugins.push(new webpack.HotModuleReplacementPlugin());
