@@ -4,32 +4,36 @@
   "description": "React starter project with hot reloading ready to go!",
   "main": "./src/app.js",
   "scripts": {
-    "start": "webpack-dev-server -d --config ./webpack.config.js",
-    "bundle-dev": "webpack --mode development --config ./webpack.config.js",
-    "bundle-production": "webpack --mode production --config ./webpack.config.js",
+    "start": "webpack-dev-server -d --config ./webpack.development.config.js",
+    "bundle-dev": "webpack --mode development --config ./webpack.development.config.js",
+    "bundle-production": "webpack --mode production --config ./webpack.production.config.js",
     "test": "jest"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.44",
-    "@babel/preset-env": "^7.0.0-beta.44",
-    "@babel/preset-react": "^7.0.0-beta.44",
-    "babel-core": "^7.0.0-0",
-    "babel-loader": "^8.0.0-beta.2",
+    "@babel/core": "^7.0.0-beta.47",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.47",
+    "@babel/preset-env": "^7.0.0-beta.47",
+    "@babel/preset-react": "^7.0.0-beta.47",
+    "babel-core": "^7.0.0-beta.3",
+    "babel-loader": "^8.0.0-beta.3",
     "jest": "^22.4.3",
-    "node-sass": "^4.8.3",
-    "react-hot-loader": "^4.0.1",
-    "webpack": "^4.5.0",
-    "webpack-cli": "^2.0.14",
+    "node-sass": "^4.9.0",
+    "react-hot-loader": "^4.2.0",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.3",
     "webpack-dev-server": "^3.1.3",
     "html-webpack-plugin": "^3.2.0",
-    "style-loader": "^0.20.3",
+    "style-loader": "^0.21.0",
     "css-loader": "^0.28.11",
     "sass-loader": "^7.0.1"
   },
   "dependencies": {
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1",
-    "react-router-dom": "^4.2.2"
+    "classnames": "^2.2.5",
+    "normalize.css": "^8.0.0",
+    "url-pattern": "^1.0.3",
+    "react": "16.4.0",
+    "react-dom": "16.4.0",
+    "react-router-dom": "4.2.2"
   },
   "jest": {
     "moduleNameMapper": {

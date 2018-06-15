@@ -1,0 +1,66 @@
+@import '../../../variables';
+
+$nav-width-normal: $nav-width-normal;
+$nav-width-minimised: $nav-width-minimised;
+$text-colour: $dark-foreground;
+$hover-background-colour: lighten($dark, 15);
+$hover-text-colour: $dark-foreground-bright;
+$active-text-colour: $dark-foreground-bright;
+$active-item-highlight-colour: $highlight;
+
+.navItemsContainer {
+  list-style: none;
+  padding: 1em 0;
+  width: $nav-width-normal;
+
+  &.minimised {
+    width: $nav-width-minimised;
+    transition: width .1s ease-in;
+
+    .navText {
+      display: none;
+    }
+  }
+}
+
+.navItemsGroup a {
+  position: relative;
+  display: flex;
+  color: $text-colour;
+  padding: 1em 1.9em;
+  margin: 1em 0;
+  align-items: center;
+  justify-content: left;
+  text-decoration: none;
+
+  .navText {
+    margin-left: 1.6em;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .icon {
+    font-size: 2em;
+  }
+
+  &:hover {
+    transition: color .15s ease-in;
+    color: $hover-text-colour;
+  }
+
+  &.active {
+    background: $hover-background-colour;
+    color: $active-text-colour;
+
+    &::before {
+      content: "";
+      background: $active-item-highlight-colour;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 0.4em;
+      position: absolute;
+    }
+  }
+}

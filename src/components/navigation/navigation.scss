@@ -1,0 +1,22 @@
+@import '../../variables';
+
+$main-nav-background-colour: $dark;
+$sub-nav-width: $sub-nav-width;
+$sub-nav-background-colour: #ffffff;
+
+.container {
+  display: flex;
+  flex-grow: 1;
+  background: $main-nav-background-colour;
+}
+
+.subNavContainer {
+  background: $sub-nav-background-colour;
+  width: $sub-nav-width;
+  animation: width ease-in .1s;
+
+  @keyframes width {
+    from { width: 0; }
+    to { width: $sub-nav-width; }
+  }
+}

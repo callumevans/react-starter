@@ -1,10 +1,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = (env, argv) => {
-    const isProduction = (argv.mode === 'production');
-
-    // Webpack config
+module.exports = () => {
     return {
         entry: {
             main: [
@@ -23,7 +20,14 @@ module.exports = (env, argv) => {
                     test: /\.(css|scss)$/,
                     use: [
                         { loader: 'style-loader' },
-                        { loader: 'css-loader', options: getCssLoaderOptions(isProduction) },
+                        { loader: 'css-loader',
+                            options: {
+                                localIdentName: '[path][local]-[name]',
+                                minimize: false,
+                                sourceMap: true,
+                                modules: true
+                            }
+                        },
                         { loader: 'sass-loader' }
                     ]
                 }
@@ -32,11 +36,9 @@ module.exports = (env, argv) => {
         output: {
             path: __dirname + '/dist',
             publicPath: '/',
-            filename: isProduction
-                ? '[name].[hash].bundle.js'
-                : '[name].bundle.js'
+            filename: '[name].bundle.js'
         },
-        plugins: getPlugins(isProduction),
+        plugins: getPlugins(),
         devServer: {
             inline: true,
             hot: true,
@@ -47,26 +49,12 @@ module.exports = (env, argv) => {
     }
 };
 
-const getCssLoaderOptions = (isProduction) => {
-    return {
-        localIdentName: isProduction
-            ? '[hash:base64]'
-            : '[path][local]-[name]',
-        minimize: isProduction,
-        sourceMap: !isProduction,
-        modules: true
-    }
-};
-
-const getPlugins = (isProduction) => {
+const getPlugins = () => {
     const plugins = [];
 
     plugins.push(new HtmlWebpackPlugin({ template: 'index.html' }));
-
-    if (!isProduction) {
-        plugins.push(new webpack.HotModuleReplacementPlugin());
-        plugins.push(new webpack.NamedModulesPlugin());
-    }
+    plugins.push(new webpack.HotModuleReplacementPlugin());
+    plugins.push(new webpack.NamedModulesPlugin());
 
     return plugins;
 };

@@ -1,0 +1,31 @@
+@import 'variables.scss';
+
+$header-height: $header-height;
+$page-background-colour: $background;
+$main-content-padding: $main-content-padding;
+
+.root {
+  background: $page-background-colour;
+  font-family: 'Muli', sans-serif;
+  display: grid;
+  grid-template:
+          'header header'
+          'nav main';
+  grid-template-columns: min-content auto;
+  grid-template-rows: min-content auto;
+  min-height: 100vh;
+}
+
+header {
+  grid-area: header;
+}
+
+nav {
+  grid-area: nav;
+  display: flex;
+}
+
+main {
+  grid-area: main;
+  padding: $main-content-padding;
+}

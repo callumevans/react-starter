@@ -1,0 +1,9 @@
+@import '../../variables';
+
+$top-bar-height: $header-height;
+$background-colour: $highlight;
+
+.topBar {
+  height: $top-bar-height;
+  background: $background-colour;
+}
